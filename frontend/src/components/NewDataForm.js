@@ -29,7 +29,7 @@ class NewDataForm extends React.Component {
       this.props.toggle();
     });
   };
-
+halo
   editData = e => {
     e.preventDefault();
     axios.put(API_URL + this.state.pk, this.state).then(() => {
@@ -55,7 +55,9 @@ class NewDataForm extends React.Component {
           />
         </FormGroup>
         <Button>Send</Button>
+
       </Form>
+      
     );
   }
 }
