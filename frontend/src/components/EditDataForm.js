@@ -5,17 +5,16 @@ import axios from "axios";
 
 import { API_URL } from "../constants";
 
-class NewDataForm extends React.Component {
+class EditDataForm extends React.Component {
   state = {
     pk: 0,
-    data: "",
-    data2: ""
+    data: ""
   };
 
   componentDidMount() {
     if (this.props.data) {
-      const { pk, data, data2} = this.props.data;
-      this.setState({ pk, data });
+      const { pk, data, data2, email } = this.props.data;
+      this.setState({ pk, data , data2, email});
     }
   }
 
@@ -23,9 +22,9 @@ class NewDataForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  createData = e => {
+  editData = e => {
     e.preventDefault();
-    axios.post(API_URL, this.state).then(() => {
+    axios.put(API_URL + this.state.pk, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
@@ -37,7 +36,7 @@ class NewDataForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.createData}>
+      <Form onSubmit={this.editData}>
         <FormGroup>
           <Label for="data">Data:</Label>
           <Input
@@ -46,7 +45,7 @@ class NewDataForm extends React.Component {
             onChange={this.onChange}
             value={this.defaultIfEmpty(this.state.data)}
           />
-                    <Label for="data2">Data2:</Label>
+            <Label for="data2">Data2:</Label>
           <Input
             type="text"
             name="data2"
@@ -67,4 +66,4 @@ class NewDataForm extends React.Component {
   }
 }
 
-export default NewDataForm;
+export default EditDataForm;
