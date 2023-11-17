@@ -8,7 +8,9 @@ import { API_URL } from "../constants";
 class EditDataForm extends React.Component {
   state = {
     pk: 0,
-    data: ""
+    data: "",
+    data2: "", 
+    email: ""
   };
 
   componentDidMount() {

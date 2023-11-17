@@ -9,13 +9,14 @@ class NewDataForm extends React.Component {
   state = {
     pk: 0,
     data: "",
-    data2: ""
+    data2: "",
+    email: ""
   };
 
   componentDidMount() {
     if (this.props.data) {
-      const { pk, data, data2} = this.props.data;
-      this.setState({ pk, data });
+      const { pk, data, data2, email} = this.props.data;
+      this.setState({ pk, data, data2, email});
     }
   }
 
