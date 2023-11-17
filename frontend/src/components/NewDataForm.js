@@ -8,12 +8,13 @@ import { API_URL } from "../constants";
 class NewDataForm extends React.Component {
   state = {
     pk: 0,
-    data: ""
+    data: "",
+    data2: ""
   };
 
   componentDidMount() {
     if (this.props.data) {
-      const { pk, data } = this.props.data;
+      const { pk, data, data2} = this.props.data;
       this.setState({ pk, data });
     }
   }
@@ -52,6 +53,20 @@ class NewDataForm extends React.Component {
             name="data"
             onChange={this.onChange}
             value={this.defaultIfEmpty(this.state.data)}
+          />
+                    <Label for="data2">Data2:</Label>
+          <Input
+            type="text"
+            name="data2"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.data2)}
+          />
+          <Label for="email">Email:</Label>
+          <Input
+            type="text"
+            name="email"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.email)}
           />
         </FormGroup>
         <Button>Send</Button>

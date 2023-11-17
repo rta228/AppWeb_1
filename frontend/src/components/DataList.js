@@ -12,6 +12,8 @@ class DataList extends Component {
         <thead>
           <tr>
             <th>Data</th>
+            <th>Data2</th>
+            <th>Email</th>
             <th></th>
           </tr>
         </thead>
@@ -26,6 +28,8 @@ class DataList extends Component {
             data.map(d => (
               <tr key={d.pk}>
                 <td>{d.data}</td>
+                <td>{d.data2}</td>
+                <td>{d.email}</td>
                 <td align="center">
                   <NewDataModal
                     create={false}
